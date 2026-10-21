@@ -1,0 +1,19 @@
+[project]
+name = "Atliq-hr-assist"
+version = "0.1.0"
+description = "This is an Agentic HR assistant which helps in onboarding new employees."
+readme = "README.md"
+authors = [
+    { name = "Aniruddh Galande", email = "aniruddhgalande94@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "mcp[cli]>=2.3.0",
+]
+
+[project.scripts]
+Atliq-hr-assist = "Atliq_hr_assist:main"
+
+[build-system]
+requires = ["uv_build>=0.13.1,<0.14.0"]
+build-backend = "uv_build"
