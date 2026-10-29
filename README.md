@@ -41,8 +41,8 @@ The `Onboard_new_employee` prompt asks for an employee and manager name, then gu
 Clone the repository and install the locked dependencies:
 
 ```powershell
-git clone <your-repository-url>
-cd Project-3-AtliQ-HR-Assist
+git clone https://github.com/Aniruddh4980/AtliQ-HR-Assist.git
+cd AtliQ-HR-Assist
 uv sync
 ```
 
