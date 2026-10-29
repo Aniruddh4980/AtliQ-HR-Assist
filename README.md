@@ -84,6 +84,18 @@ Add the server to Claude Desktop's MCP configuration file. Replace the example p
 
 After saving the configuration, restart Claude Desktop. If you use `send_email`, make sure the project `.env` file is in place before launching Claude Desktop.
 
+## Run the tests
+
+The pytest suite checks the MCP tools and onboarding prompt, including employee lookup behavior and the data passed to the ticket, meeting, and email services. Email delivery tests mock the SMTP connection and verify the message contents and successful handoff over both TLS and SSL; they do not send real email or require SMTP credentials.
+
+Run the suite from the project root:
+
+```powershell
+uv run --with pytest pytest
+```
+
+The MCP server seeds demo data when `server` is imported by the tests. The tests replace its service dependencies with mocks, so test operations do not send email or alter live data.
+
 ## Project layout
 
 ```text
@@ -91,6 +103,9 @@ After saving the configuration, restart Claude Desktop. If you use `send_email`,
 ├── server.py             # MCP server, tools, and onboarding prompt
 ├── emails.py             # Gmail SMTP email helper
 ├── utils.py              # In-memory demo data seeding
+├── tests/
+│   ├── conftest.py        # Adds the project root to Python's import path for tests
+│   └── test_mcp.py        # MCP tool and mocked email delivery tests
 ├── hrms/
 │   ├── employee_manager.py
 │   ├── leave_manager.py
